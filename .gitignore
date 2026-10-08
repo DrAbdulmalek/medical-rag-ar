@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+# بيانات ونماذج ضخمة — لا تُرفع
+data/
+models/
+*.qdrant/
+qdrant_storage/
+.env

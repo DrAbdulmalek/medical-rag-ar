@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medical-rag-ar"
+version = "0.1.0"
+description = "Arabic Medical RAG — retrieval-augmented Q&A over Arabic medical documents (built on ocr-core)"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+ingest = ["marathon-ocr-core[paddle]>=0.7.0", "sentence-transformers>=2.7", "qdrant-client>=1.9", "pymupdf>=1.24", "pillow>=10.0"]
+retrieval = ["rank_bm25>=0.2.2", "qdrant-client>=1.9", "numpy>=1.24"]
+llm = ["transformers>=4.45", "torch>=2.2", "accelerate>=0.29"]
+eval = ["rapidfuzz>=3.6", "datasets>=2.19"]
+demo = ["gradio>=4.44"]
+all = ["medical-rag-ar[ingest,retrieval,llm,eval,demo]"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
